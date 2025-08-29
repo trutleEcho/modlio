@@ -19,7 +19,7 @@ export default async function ProjectPage({
             description:
                 "Arogyam is a cloud-based IaaS platform designed for healthcare providers. It helps doctors and clinics streamline appointment scheduling, patient records, and CRM operations with secure, scalable infrastructure.",
             image: "/globe.png",
-            demoUrl: "https://arogyam-iota.vercel.app/Arogyam-Demo.apk", // you can replace with an actual file
+            demoUrl: "https://arogyam-iota.vercel.app/Arogyam-demo.apk", // you can replace with an actual file
             liveUrl: "https://arogyam-iota.vercel.app/", // link to your deployed product
             services: [
                 {
