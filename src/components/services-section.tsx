@@ -6,6 +6,7 @@ import {ArrowRight, CheckCircle, Code2, Laptop, Palette, Phone, Rocket, Shield} 
 import {Button} from "@/components/ui/button";
 import {useRef} from "react";
 import {Separator} from "@/components/ui/separator";
+import Link from "next/link";
 
 export default function ServicesSection(){
     const ref = useRef(null)
@@ -60,6 +61,22 @@ export default function ServicesSection(){
         }
     ]
 
+    const product = [
+        {
+            logo:"/globe.png",
+            name:"Arogyam",
+            href:"/Arogyam",
+            description:"A cloud-based IaaS platform designed for healthcare providers. It helps doctors and clinics streamline appointment scheduling, patient records, and CRM operations with secure, scalable infrastructure.",
+            features:[
+                "Appointment Management",
+                "Patient Records",
+                "CRM Operations",
+                "Secure Infrastructure",
+                "More ...."
+            ],
+        }
+    ]
+
     return(
         <section id="services" className="section-padding bg-muted/30" ref={ref}>
             {/* Services Section */}
@@ -82,7 +99,7 @@ export default function ServicesSection(){
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 py-24">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 pt-24">
                         {services.map((service, index) => (
                             <motion.div
                                 key={service.title}
@@ -106,6 +123,52 @@ export default function ServicesSection(){
                                             </p>
                                         </div>
                                     </div>
+                                    <Separator className="mb-6"/>
+
+                                    <div className="space-y-3">
+                                        {service.features.map((feature, featureIndex) => (
+                                            <motion.div
+                                                key={feature}
+                                                initial={{ opacity: 0, x: -20 }}
+                                                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                                                transition={{ duration: 0.6, delay: 1 + index * 0.1 + featureIndex * 0.05 }}
+                                                className="flex items-center space-x-3"
+                                            >
+                                                <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                                                <span className="text-sm text-muted-foreground">{feature}</span>
+                                            </motion.div>
+                                        ))}
+                                    </div>
+                                </Card>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    <div className="mb-16 pb-24">
+                        {product.map((service, index) => (
+                            <motion.div
+                                key={service.name}
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                                transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}
+                                whileHover={{ y: -5 }}
+                                className="group"
+                            >
+                                <Card className="p-8 h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/20 transition-all duration-300">
+                                    <div className="flex items-start space-x-4 mb-6">
+                                        <div>
+                                            <h3 className="text-xl font-semibold mb-2 text-foreground">
+                                                {service.name}
+                                            </h3>
+                                            <p className="text-muted-foreground leading-relaxed">
+                                                {service.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <Link href={service.href} className="flex items-center space-x-2">
+                                        <span className="text-primary hover:underline">View Details</span>
+                                        <ArrowRight className="w-4 h-4 text-primary flex-shrink-0" />
+                                    </Link>
                                     <Separator className="mb-6"/>
 
                                     <div className="space-y-3">
