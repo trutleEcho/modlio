@@ -5,6 +5,7 @@ import {Card} from "@/components/ui/card";
 import {ArrowRight, CheckCircle, Code2, Laptop, Palette, Phone, Rocket, Shield} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {useRef} from "react";
+import {Separator} from "@/components/ui/separator";
 
 export default function ServicesSection(){
     const ref = useRef(null)
@@ -93,7 +94,7 @@ export default function ServicesSection(){
                             >
                                 <Card className="p-8 h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/20 transition-all duration-300">
                                     <div className="flex items-start space-x-4 mb-6">
-                                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                        <div className="w-12 h-12 p-4 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
                                             <service.icon className="w-6 h-6 text-primary" />
                                         </div>
                                         <div>
@@ -105,6 +106,7 @@ export default function ServicesSection(){
                                             </p>
                                         </div>
                                     </div>
+                                    <Separator className="mb-6"/>
 
                                     <div className="space-y-3">
                                         {service.features.map((feature, featureIndex) => (
